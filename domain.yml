@@ -1,0 +1,313 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - ask_definition
+#  - affirm
+#  - deny
+  - answer_quiz
+  - ask_to_translate
+#  - mood_great
+#  - mood_unhappy
+#  - bot_challenge
+#  - who_creator
+#  - get_username
+  - ask_about_people
+  - ask_about_places
+  - ask_about_sports_and_games
+  - ask_about_kazakh_items
+  - ask_to_tag_sentence
+  - ask_analyze_noun
+  - ask_extract_noun
+  - test_mongo
+  - get_vocab_quiz
+  - get_grammar_quiz
+  - ask_for_results
+  - ask_teach_adjectives
+  - ask_teach_nouns
+  - ask_for_learned
+  - ask_for_struggles
+#  - get_action
+
+entities:
+  - noun_to_decline
+  - PERSON
+  - word_answer
+#  - sentence_answer
+  - current_word
+  - user_score
+  - quiz_score
+  - current_sentence
+  - correct_translation
+  - translation_answer
+  - sentence_to_translate
+  - translation_result
+  - sentence_to_tag
+  - pos_tags_result
+  - text_to_analyze
+  - word_to_define
+  - user_answer
+  - Location
+  - People_name
+  - Sport
+  - Game
+  - Kazakh_Item
+
+slots:
+  People_name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: People_name
+  Sport:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: Sport
+  Game:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: Game
+  Location:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: Location
+  Kazakh_Item:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: Kazakh_Item
+  current_quiz:
+    type: any
+    influence_conversation: false
+    mappings:
+      - type: custom
+  user_id:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+  user_level:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+  last_word:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+  last_action_index:
+    type: any
+    influence_conversation: false
+    mappings:
+      - type: custom
+  last_response:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+  language:
+    type: text
+    initial_value: "en"
+    influence_conversation: false
+    mappings:
+      - type: custom
+  user_score:
+    type: float
+    initial_value: 0
+    mappings:
+      - type: from_entity
+        entity: user_score
+  quiz_score:
+    type: float
+    initial_value: 0
+    mappings:
+      - type: from_entity
+        entity: quiz_score
+  case_examples:
+    type: any
+    mappings:
+      - type: custom
+  current_word:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: current_word
+  word_to_define:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: word_to_define
+  noun_analysis_result:
+      type: text
+      mappings:
+        - type: custom
+  text_to_analyze:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: text_to_analyze
+  noun_to_decline:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: noun_to_decline
+  translation_result:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: translation_result
+  pos_tags_result:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: pos_tags_result
+  sentence_to_tag:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: sentence_to_tag
+  sentence_to_translate:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: sentence_to_translate
+  current_sentence:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: current_sentence
+  correct_translation:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: correct_translation
+#  learned_words:
+#    type: list
+#  struggling_words:
+#    type: list
+  word_answer:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: word_answer
+#  sentence_answer:
+#    type: text
+#    mappings:
+#      - type: from_entity
+#        entity: sentence_answer
+  translation_answer:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: translation_answer
+  PERSON:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: PERSON
+
+
+actions:
+#  - action_hello_world
+#  - action_apertium_pos_tagging
+  - action_generate_case_examples_for_noun
+  - action_fetch_knowledge_base
+  - action_analyze_nouns
+  - action_test_mongo
+  - action_detect_language
+  - action_tilmash_translate
+  - action_define_word
+  - action_generate_vocab_quiz
+  - action_generate_grammar_quiz
+  - action_process_quiz_response
+  - action_detect_user_level
+  - action_explain_nouns
+  - action_explain_adjectives
+  - action_show_struggles
+  - action_show_learned
+
+
+
+responses:
+
+  utter_greet:
+    - condition:
+        - type: slot
+          name: language
+          value: "en"
+      text: "Hello! How can I help you?"
+    - condition:
+        - type: slot
+          name: language
+          value: "ru"
+      text: "Привет! Чем могу помочь?"
+    - condition:
+        - type: slot
+          name: language
+          value: "kk"
+      text: "Сәлем! Сізге қалай көмектесе аламын?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_default:
+    - text: "Кешіріңіз, мен бұл сұраққа жауап бере алмаймын."
+    - text: "Sorry, I don’t have information about that."
+
+  utter_answered:
+  - text: Good! You answered {word_answer}, and now we will check it okay
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_creator:
+  - text: "My owner is data scientist"
+  - text: "I am created by data scientist"
+
+  utter_welcome:
+  - text: Welcome dear {PERSON}
+  - text: That is very nice name {PERSON}, nice to meet you
+
+  utter_start_quiz:
+    - text: Good! Here is a quiz for you. What is the translation of {current_word} in Kazakh?
+
+  utter_start_sentence_quiz:
+    - text: Great! You answered to two vocabulary questions. Now try to translate sentences!
+
+  utter_correct_answer:
+    - text: "Correct next question"
+
+  utter_wrong_answer:
+    - text: "That's not correct. Let's try another one."
+#
+  utter_quiz_result_c2:
+    - text: Great job! You have proficiency in Kazakh C2!
+#
+  utter_quiz_result_b2:
+    - text: Well done! You have good level in Kazakh B2!
+#
+  utter_quiz_result_a2:
+    - text: Not bad! You have okay level in Kazakh A2!
+#
+  utter_quiz_result_a1:
+    - text: Nice try! You should start learning Kazakh language, your current level is A1!
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

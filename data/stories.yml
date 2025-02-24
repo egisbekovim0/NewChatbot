@@ -1,0 +1,144 @@
+version: "3.1"
+
+stories:
+- story: greet path
+  steps:
+  - intent: greet
+  - action: utter_greet
+#
+#- story: happy path
+#  steps:
+#  - intent: greet
+#  - action: utter_greet
+#  - intent: mood_great
+#  - action: utter_happy
+##
+#- story: sad path 1
+#  steps:
+#  - intent: greet
+#  - action: utter_greet
+#  - intent: mood_unhappy
+#  - action: utter_cheer_up
+#  - action: utter_did_that_help
+#  - intent: affirm
+#  - action: utter_happy
+##
+#- story: sad path 2
+#  steps:
+#  - intent: greet
+#  - action: utter_greet
+#  - intent: mood_unhappy
+#  - action: utter_cheer_up
+#  - action: utter_did_that_help
+#  - intent: deny
+#  - action: utter_goodbye
+##
+- story: User asks for a word definition
+  steps:
+  - intent: ask_definition
+  - action: action_detect_language
+  - action: action_define_word
+
+
+#- story: creator path
+#  steps:
+#  - intent: who_creator
+#  - action: utter_creator
+
+#- story: user identification
+#  steps:
+#  - intent: get_username
+#  - action: utter_welcome
+
+
+- story: user starting vocab quiz
+  steps:
+  - intent: get_vocab_quiz
+  - action: action_generate_vocab_quiz
+
+- story: user asking for nouns
+  steps:
+  - intent: ask_teach_nouns
+  - action: action_detect_language
+  - action: action_explain_nouns
+
+- story: user asking for adjectives
+  steps:
+  - intent: ask_teach_adjectives
+  - action: action_detect_language
+  - action: action_explain_adjectives
+
+- story: user asking for level
+  steps:
+  - intent: ask_for_results
+  - action: action_detect_user_level
+
+- story: NER with people
+  steps:
+  - intent: ask_about_people
+  - action: action_fetch_knowledge_base
+
+- story: NER with location
+  steps:
+  - intent: ask_about_places
+  - action: action_fetch_knowledge_base
+
+- story: NER with games and sport
+  steps:
+  - intent: ask_about_sports_and_games
+  - action: action_fetch_knowledge_base
+
+- story: NER with items
+  steps:
+  - intent: ask_about_kazakh_items
+  - action: action_fetch_knowledge_base
+
+
+- story: user starting grammar quiz
+  steps:
+  - intent: get_grammar_quiz
+  - action: action_generate_grammar_quiz
+
+- story: user answering quiz
+  steps:
+  - intent: answer_quiz
+  - action: action_process_quiz_response
+
+- story: user asking for learned
+  steps:
+  - intent: ask_for_learned
+  - action: action_show_learned
+
+- story: user asking for struggles
+  steps:
+  - intent: ask_for_struggles
+  - action: action_show_struggles
+
+- story: user asking to translate a sentence
+  steps:
+  - intent: ask_to_translate
+  - action: action_detect_language
+  - action: action_tilmash_translate
+
+#- story: user asking to analyse a sentence for tags
+#  steps:
+#  - intent: ask_to_tag_sentence
+#  - action: action_apertium_pos_tagging
+
+- story: user asking to analyze noun
+  steps:
+  - intent: ask_analyze_noun
+  - action: action_detect_language
+  - action: action_generate_case_examples_for_noun
+
+- story: user asking to find nouns and tell which form are they in
+  steps:
+  - intent: ask_extract_noun
+  - action: action_detect_language
+  - action: action_analyze_nouns
+
+
+- story: checking mongodb
+  steps:
+  - intent: test_mongo
+  - action: action_test_mongo

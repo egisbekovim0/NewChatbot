@@ -1,0 +1,64 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+
+
+#
+#- rule: Say 'I am a bot' anytime the user challenges
+#  steps:
+#  - intent: bot_challenge
+#  - action: utter_iamabot
+
+#- rule: Detect language on user input
+#  steps:
+#  - intent: greet
+#  - action: action_detect_language
+
+- rule: Answer for quiz question
+  steps:
+  - intent: answer_quiz
+  - action: action_process_quiz_response
+
+- rule: Get vocab quiz question
+  steps:
+  - intent: get_vocab_quiz
+  - action: action_generate_vocab_quiz
+
+- rule: Get grammar quiz question
+  steps:
+  - intent: get_grammar_quiz
+  - action: action_generate_grammar_quiz
+
+- rule: Handle out-of-scope queries
+  steps:
+    - intent: out_of_scope
+    - action: utter_default
+#- rule: Answer quiz translation
+#  steps:
+#  - intent: answer_translation_quiz
+#  - action: action_check_translation_quiz
+
+#- rule: Always detect language
+#  steps:
+#  - action: action_detect_language
+#- rule: Start sentence quiz question
+#  steps:
+#  - intent: get_sentence_quiz
+#  - action: action_start_sentence_quiz
+
+#- rule: intent for translation
+#  steps:
+#  - intent: get_translation_quiz
+#  - action: action_start_translation_quiz
+
+#- rule: quiz transition to sentence
+#  steps:
+#  - intent: answer_sentence_quiz
+#  - action: action_check_sentence_answer

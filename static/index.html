@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kazakh Learning Chatbot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        #chatbox {
+            width: 50%;
+            height: 400px;
+            border-radius: 10px;
+            background: white;
+            padding: 15px;
+            margin: auto;
+            overflow-y: scroll;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 10px 15px;
+            margin: 10px;
+            border-radius: 10px;
+            font-size: 16px;
+            display: inline-block;
+        }
+
+        .user-message {
+            background: #4caf50;
+            color: white;
+            text-align: right;
+            float: right;
+            clear: both;
+        }
+
+        .bot-message {
+            background: #3498db;
+            color: white;
+            text-align: left;
+            float: left;
+            clear: both;
+        }
+
+        #userInput {
+            width: 40%;
+            padding: 12px;
+            margin-top: 15px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 18px;
+            background: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        button:hover {
+            background: #e68900;
+        }
+    </style>
+</head>
+<body>
+    <h2>Rasa Chatbot</h2>
+    <div id="chatbox"></div>
+    <input id="userInput" type="text" placeholder="Type your message...">
+    <button onclick="sendMessage()">Send</button>
+
+    <script>
+        function sendMessage() {
+            let userMessage = document.getElementById("userInput").value;
+            if (!userMessage) return;
+
+            let chatbox = document.getElementById("chatbox");
+            chatbox.innerHTML += `<p class="message user-message"><b>You:</b> ${userMessage}</p>`;
+
+            fetch("http://localhost:5005/webhooks/rest/webhook", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ sender: "user", message: userMessage })
+            })
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(msg => {
+                    chatbox.innerHTML += `<p class="message bot-message"><b>Bot:</b> ${msg.text}</p>`;
+                });
+                chatbox.scrollTop = chatbox.scrollHeight;
+            });
+
+            document.getElementById("userInput").value = "";
+        }
+    </script>
+</body>
+</html>

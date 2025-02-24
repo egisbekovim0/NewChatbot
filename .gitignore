@@ -1,0 +1,14 @@
+.venv/
+.rasa/
+models/
+.env
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+logs/
+*.log
+debug.log
+
+.idea/

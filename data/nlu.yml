@@ -1,0 +1,845 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - hey there
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - сәлем
+    - сәлеметсіз бе
+    - қайырлы күн
+    - қайырлы кеш
+    - армысыз
+    - привет
+    - добрый день
+    - здравствуйте
+    - добрый вечер
+    - доброе утро
+
+- intent: ask_teach_nouns
+  examples: |
+    - Teach me about nouns
+    - Teach me nouns
+    - Can you explain Kazakh nouns?
+    - Can you explain nouns?
+    - I want to learn about nouns
+    - I want to learn nouns
+    - Tell me how nouns work in Kazakh
+    - Tell me how nouns work in Kazakh
+    - Explain noun cases to me
+    - How do nouns work in Kazakh grammar?
+    - можете мне обьяснить существительные
+    - я хочу научиться существительным
+    - я хочу учить существительные
+    - давайте изучать существительные
+    - мен зат есім туралы білгім келеді
+    - мен зат есім туралы оқығым келеді
+    - зат есім туралы айтшы
+    - зат есім туралы үйренейік
+
+- intent: ask_teach_adjectives
+  examples: |
+    - Teach me about adjectives
+    - Teach me adjectives
+    - Can you explain Kazakh adjectives?
+    - Can you explain Kazakh adjectives?
+    - I want to learn about adjectives
+    - I want to learn adjectives
+    - I want learn adjectives
+    - I want to learn about adjectives
+    - Tell me how nouns work in Kazakh
+    - Tell me how adjectives work in Kazakh
+    - Tell me what adjectives are in Kazakh
+    - Explain adjectives to me
+    - Explain adjectives 
+    - можете мне обьяснить прилагательные
+    - я хочу научиться прилагательным
+    - я хочу научиться по прилагательным
+    - давайте изучать прилагательные
+    - давайте прилагательные
+    - мен сын есім туралы білгім келеді
+    - мен сын есім туралы оқығым келеді
+    - сын есім туралы айтшы
+    - сын есім туралы айт
+    - сын есім туралы үйренейік
+    - сын есім туралы үйренгім келеді
+    
+
+- intent: ask_analyze_noun
+  examples: |
+    - Explain the noun [кітап](noun_to_decline)
+    - Explain noun [қалам](noun_to_decline)
+    - Can you show cases for the noun [мектеп](noun_to_decline)?
+    - Can you show cases for noun [сиыр](noun_to_decline)?
+    - How is the noun [балалар](noun_to_decline) used in sentences?
+    - How is noun [жылқы](noun_to_decline) used in sentences?
+    - Show me the different forms of [үй](noun_to_decline)
+    - Show me the different versions of [домбыра](noun_to_decline)
+    - What are the cases of [адам](noun_to_decline)?
+    - What are cases of [қыз](noun_to_decline)?
+    - I want to learn about the noun [қала](noun_to_decline)
+    - I want to learn about noun [ауыл](noun_to_decline)
+    - обьясни мне про существительное [мектеп](noun_to_decline)
+    - какие падежи у этого существительного [ешкі](noun_to_decline)
+    - как [құс](noun_to_decline) используется в прелоджениях?
+    
+
+- intent: ask_extract_noun
+  examples: |
+    - Find the nouns in this sentence: [Мен кітап оқимын](text_to_analyze)
+    - What is the noun in [Мектеп үлкен](text_to_analyze)?
+    - Identify the noun in [Мен жаңа қаланы көрдім](text_to_analyze)
+    - Where is the noun in this sentence: [Қалада жаңбыр жауып тұр](text_to_analyze)?
+    - Can you extract nouns from this sentence: [Ол жақсы адам](text_to_analyze)?
+    - Tell me which word is a noun in [Үйде жарық жоқ](text_to_analyze)
+    - можешь ли найти существительное здесь [Киноға кеше бардық](text_to_analyze)?
+    - есть в этом предложении [Алматы өте әдемі](text_to_analyze) существительное?
+    - где здесь существительное [телефон қымбат тұрады](text_to_analyze)?
+    - бұл жерден зат есімді тауып бере аласың ба? [ең мықты адам](text_to_analyze)?
+    - мына сөйлемде [ең үлкен алаңда адамдар көп](text_to_analyze) зат есім бар ма?
+    - бұл сөйлемде [ең кішкентай жануар ол тышқан](text_to_analyze) қай сөз зат есім болып табылады?
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: ask_definition
+  examples: |
+    - What does word [кітап](word_to_define) mean?
+    - What does word [аспан](word_to_define) mean?
+    - What does word [мысық](word_to_define) say?
+    - What does word [адам](word_to_define) mean?
+    - What does [қыз](word_to_define) mean?
+    - What does [өзен](word_to_define) mean?
+    - What does [ұл](word_to_define) mean?
+    - What does [қарандаш](word_to_define) mean?
+    - Define word [алма](word_to_define).
+    - Define [мылтық](word_to_define).
+    - Define [киіз үй](word_to_define).
+    - Define [балалық шақ](word_to_define).
+    - Define [ағаш](word_to_define).
+    - Define word [көлік](word_to_define).
+    - Define word [иман](word_to_define).
+    - Define word [дос](word_to_define).
+    - Define word [сан](word_to_define).
+    - Explain [дәптер](word_to_define) in terms of definition.
+    - Explain [қалам](word_to_define) in terms of definition.
+    - Explain definition of [қар](word_to_define).
+    - Explain definition of [су](word_to_define).
+    - What is the definition of [үй](word_to_define)?
+    - What is the definition of [күн](word_to_define)?
+    - What is the definition of [ай](word_to_define)?
+    - What is definition of [қол](word_to_define)?
+    - What is definition of [жел](word_to_define)?
+    - Что означает слово [желкен](word_to_define)?
+    - Что означает слово [дос](word_to_define)?
+    - Что означает слово [ұл](word_to_define)?
+    - Что означает слово [саябақ](word_to_define)?
+    - Какое значение у слово [теңіз](word_to_define)?
+    - Какое значение у слово [ерулік](word_to_define)?
+    - Какое значение у слово [тау](word_to_define)?
+    - Мына сөз нені білдіреді [жота](word_to_define)?
+    - Мына сөз нені білдіреді [көне](word_to_define)?
+    - Мына сөз нені білдіреді [жұлдыз](word_to_define)?
+    - Мына сөз нені білдіреді [бұрыш](word_to_define)?
+    - [топырақ](word_to_define) сөзінің мағынасы неде?
+    - [жар](word_to_define) сөзінің мағынасы неде?
+    - [көл](word_to_define) сөзінің мағынасы неде?
+    - [жел](word_to_define) сөзінің мағынасы неде?
+    - [жапалақ](word_to_define) сөзінің мағынасы неде?
+
+- intent: give_feedback
+  examples: |
+    - That was good
+    - Correct!
+    - I think this is incorrect
+    - No, that is wrong
+    - yep, that is what I needed!
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+#
+#- intent: mood_great
+#  examples: |
+#    - perfect
+#    - great
+#    - amazing
+#    - feeling like a king
+#    - wonderful
+#    - I am feeling very good
+#    - I am great
+#    - I am amazing
+#    - I am going to save the world
+#    - super stoked
+#    - extremely good
+#    - so so perfect
+#    - so good
+#    - so perfect
+##
+#- intent: mood_unhappy
+#  examples: |
+#    - my day was horrible
+#    - I am sad
+#    - I don't feel very well
+#    - I am disappointed
+#    - super sad
+#    - I'm so sad
+#    - sad
+#    - very sad
+#    - unhappy
+#    - not good
+#    - not very good
+#    - extremely sad
+#    - so saad
+#    - so sad
+#
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+#
+- intent: who_creator
+  examples: |
+    - who is your creator?
+    - who owns you?
+    - who are your parents?
+    - who is creator?
+    - creator?
+    - owner?
+#
+- intent: get_username
+  examples: |
+    - My name is [Murthy](PERSON)
+    - My name is [Katya](PERSON)
+    - My name is [Alex](PERSON)
+    - My name is [Sasha](PERSON)
+    - I am [Greg](PERSON)
+    - I am [Sam](PERSON)
+#
+#- intent: get_action
+#  examples: |
+#    - run test action
+#    - example action
+#    - run the test
+
+
+- intent: ask_for_results
+  examples: |
+    - yes show me results of my quiz
+    - yes show results of quiz
+    - show results of quiz
+    - show quiz results
+    - show quiz score
+    - show results of my quiz
+    - yes show quiz result 
+    - yes I want to see results
+    - yes I want to see my results
+    - I want to see my level
+    - I want to see my results
+    - I wonder what are my results
+    - let me see my level of Kazakh
+    - let me see my results on quiz
+
+- intent: ask_for_learned
+  examples: |
+    - show me mastered words
+    - what words did I master
+    - show me my progress
+    - show mastered words
+    - show learned words
+    - show words that I am learning
+    - show words learned
+    - show me learned words
+    - what kinda words did I learn?
+    - what did I learn
+
+- intent: ask_for_struggles
+  examples: |
+    - what words did I struggle with
+    - show me my struggles
+    - show struggled words
+    - show where I struggle
+    - with what I have problems?
+    - show my problems
+    - what do I find most difficult?
+    - show me my mistakes
+    - my mistakes
+    - what mistakes did I make?
+
+
+
+- intent: out_of_scope
+  examples: |
+    - Who is the president of the USA?
+    - What is the capital of France?
+    - How to bake a cake?
+    - Can you tell me a joke?
+    - Who won the last FIFA World Cup?
+    - What's the weather in New York?
+    - Can you book me a flight?
+    - Do you believe in ghosts?
+    - Who is the CEO of Tesla?
+    - What is the stock price of Apple today?
+    - How do I get to the nearest Starbucks?
+    - What’s the population of China?
+    - Can you play my favorite song?
+    - How do I cook spaghetti carbonara?
+    - What’s the best Netflix series to watch?
+    - Can you translate English to Spanish?
+    - What’s the latest news in politics?
+    - Tell me about black holes.
+    - How do I install Windows on my laptop?
+    - Can you book me an Uber?
+    - What’s the meaning of life?
+    - How much does a flight to Paris cost?
+    - What time is it in New York?
+    - Who will win the next World Cup?
+    - Can you tell me a joke?
+    - Recommend a good horror movie.
+    - How does cryptocurrency work?
+    - Who discovered electricity?
+    - What’s the best way to lose weight?
+    - Explain quantum physics to me.
+    - How do I fix my internet connection?
+    - What’s the capital of Brazil?
+    - How do I make money online?
+    - Can you write a poem for me?
+    - Where is the nearest gas station?
+    - How do I repair a car engine?
+    - Tell me about Shakespeare.
+    - What’s the latest fashion trend?
+    - How do I meditate properly?
+    - What’s the best smartphone in 2024?
+    - Can you give me a horoscope reading?
+    - How do I become a millionaire?
+    - What is the cure for a headache?
+    - What are the best tourist attractions in Japan?
+    - How do I register a company?
+    - Can you guide me in learning French?
+    - Who was the first person to climb Mount Everest?
+    - What’s the best way to propose to someone?
+    - How do I set up a smart home?
+    - Tell me about the history of the Roman Empire.
+    - Can you help me with my chemistry homework?
+    - What’s the best camera for photography?
+    - How do I make a YouTube channel?
+    - What’s the best way to train a dog?
+    - How do I apply for a visa to Canada?
+    - Can you recommend a good novel?
+    - What are the symptoms of diabetes?
+    - How do I grow tomatoes in my garden?
+    - What are the side effects of caffeine?
+    - How does the stock market work?
+    - Tell me about the Cold War.
+    - How do I make my own website?
+    - What’s the best diet for muscle gain?
+    - Can you predict tomorrow’s weather?
+    - How do I learn to play the piano?
+    - What are the benefits of yoga?
+    - Who invented the internet?
+    - How do I edit a video?
+    - What’s the best way to invest in real estate?
+    - Can you tell me my fortune?
+
+- intent: get_vocab_quiz
+  examples: |
+    - run vocabulary quiz
+    - take vocabulary quiz
+    - take vocab quiz
+    - example vocab quiz
+    - next vocab
+    - next vocabulary
+    - next question in vocab
+    - next question in vocab
+    - quiz me in vocabulary
+    - give me the quiz on words
+    - check my knowledge on vocabulary
+    - I want to check my vocabulary range
+    - test me on vocabulary knowledge
+    - возьми у меня квиз по словам
+    - проверь мои навыки знания слов
+    - проверь мое знание по словарю
+    - задавай мне вопросы по словарю
+#    - менің білімімді тексер
+#    - менен квиз алшы
+#    - мен қаншалықты қазақ тілін білемін?
+#
+
+- intent: get_grammar_quiz
+  examples: |
+    - run grammar quiz
+    - take grammar quiz
+    - take grammar rules quiz
+    - take quiz on grammar rules
+    - take quiz on grammar
+    - I want to see if I know grammar
+    - check if I know grammar rules
+    - let's have a quiz on grammar 
+    - example grammar quiz
+    - quiz me in grammar rules
+    - give me the quiz on grammar rules
+    - check my knowledge on grammar rules
+    - возьми у меня квиз по грамматике
+    - проверь мои навыки знания грамматики 
+    - проверь мое знание по правилам грамматики
+    - задавай мне вопросы по грамматике
+
+#- intent: get_sentence_quiz
+#  examples: |
+#    - let's now move on to sentences
+#    - lets go with sentences
+#    - sentence quiz please
+#    - I am ready for the sentence quiz
+#    - I am ready for next challenge
+#    - Let's learn to construct sentences
+#    - Check my knowledge on sentences
+
+#- intent: get_translation_quiz
+#  examples: |
+#    - take translation quiz
+#    - let's go with translation
+#    - sentence quiz please
+#    - give me translation quiz please
+#    - lets take translation quiz
+#    - ask me to take translate quiz
+#    - ready for next challenge
+#    - Check my knowledge on translation
+
+
+- intent: answer_quiz
+  examples: |
+    - the answer is [алма](word_answer)
+    - the answer is [қала](word_answer)
+    - the answer is [sun](word_answer)
+    - the answer is [sky](word_answer)
+    - the answer is [кітапта](word_answer)
+    - right answer would be [cat](word_answer)
+    - right answer would be [менің](word_answer)
+    - right answer would be [олар](word_answer)
+    - right answer would be [cat](word_answer)
+    - right answer would be [write](word_answer)
+    - right answer is [баруға](word_answer)
+    - right answer is [read](word_answer)
+    - right answer is [оқу](word_answer)
+    - right answer is [жасампаз](word_answer)
+    - right answer is [ball](word_answer)
+    - right answer is [қ, п, с, т, ш](word_answer)
+    - my choice is [мектепке](word_answer)
+    - my choice is [зат есім](word_answer)
+    - my choice is [-шы](word_answer)
+    - my choice is [cat](word_answer)
+    - my choice is [see](word_answer)
+    - translation is [доп](word_answer)
+    - translation is [су](word_answer)
+    - translation is [әлем](word_answer)
+    - my choice is [speak](word_answer)
+    - translation is [man](word_answer)
+    - it is [адамгершілік](word_answer)
+    - it is [wind](word_answer)
+    - it is [аспан](word_answer)
+    - it is [жарық](word_answer)
+    - it is [blue](word_answer)
+    - it's [әйел](word_answer)
+    - it's [tree](word_answer)
+    - it's [run](word_answer)
+    - it's [sky](word_answer)
+    - it's [12](word_answer)
+    - это будет [адам](word_answer)
+    - это будет [сары](word_answer)
+    - это будет [кіші](word_answer)
+    - это будет [тау](word_answer)
+    - это будет [жаз](word_answer)
+    - ответ будет [баспасөз, теміржол, көкжиек](word_answer)
+    - ответ будет [Күнбағыс өсіп тұр.](word_answer)
+    - ответ будет [жаман](word_answer)
+#    - the answer is [көбелек](word_answer)
+#    - I think it is [кітап](word_answer)
+#    - In Kazakh it is [қалам](word_answer)
+#    - ответом является [үлкен](word_answer)
+#    - я думаю что ответ [кішкентай](word_answer)
+#    - это [қара](word_answer)
+#
+#
+#
+- intent: ask_to_translate
+  examples: |
+    - Can you translate [Hello how are you](sentence_to_translate) into Kazakh?
+    - Can you translate [Yesterday we ate banana](sentence_to_translate) into Kazakh?
+    - How [this is cool](sentence_to_translate) is said in Kazakh?
+    - How [the house is beautiful](sentence_to_translate) is said in Kazakh?
+    - How do I say [Good morning](sentence_to_translate) in Kazakh?
+    - How do I say [you are nice](sentence_to_translate) in Kazakh?
+    - Can you tell me the meaning of [Let's go to the park](sentence_to_translate) in Kazakh?
+    - Convert [Do you speak English](sentence_to_translate) into Kazakh.
+    - Give me a Kazakh translation for [I need some help](sentence_to_translate).
+    - How would you say [My name is John](sentence_to_translate) in Kazakh?
+    - можешь ли ты перевести [мою собаку зовут Рекс](sentence_to_translate) на казахский?
+    - как будет [почему ты такой злой](sentence_to_translate) на казахском
+    - как будет [я завтра пойду на парк](sentence_to_translate) на казахском
+    - переведи это на казахский [хороший мальчик](sentence_to_translate)
+    - хочу перевод этой фразы [добрый вечер](sentence_to_translate) на казахском
+
+- intent: ask_to_tag_sentence
+  examples: |
+    - Can you explain the sentence [Бәріне сәлем](sentence_to_tag) in terms of grammar ?
+    - What is grammar of sentence [Бұл қандай ойын](sentence_to_tag)?
+    - How to analyze sentence [Қайырлы таң](sentence_to_tag) in terms of POS?
+    - I need grammar explanation for [Аялдама қай жерде](sentence_to_tag).
+    - Can you show me part of speech tags of [Жүр саябаққа барайық](sentence_to_tag) in detail?
+    - Show me POS of [Сен ағылшынша сөйлей аласың ба](sentence_to_tag) in tags.
+    - Give me a part of speech analysis for [Маған көмек керек](sentence_to_tag).
+    - Break this phrase [Менің атым Алекс](sentence_to_tag) into part of speech tags ?
+    - покажи части речи этого предложения [мен сені жақсы көремін](sentence_to_tag)
+    - какие части речи есть у этого предложения [ол ақымақ білмейді ол](sentence_to_tag)
+    - разбей это предложение на части [ең қымбат ол алқа ол алтын алқа](sentence_to_tag)
+    
+    
+
+#- intent: answer_sentence_quiz
+#  examples: |
+#    - the right order of sentence would be [Мен бағдарламалауды жақсы көремін](sentence_answer)
+#    - the right order of sentence would be [Ол кітап оқып жатыр](sentence_answer)
+#    - the right order of sentence would be [Мен футбол ойнаймын](sentence_answer)
+#    - the right order of sentence would be [Ол ақша сұрады](sentence_answer)
+#    - the sentence is [Аспанның түсі көк](sentence_answer)
+#    - the sentence is [Ол дүкенге бара жатыр](sentence_answer)
+#    - the sentence is [Біз жаңа тіл үйреніп жатырмыз](sentence_answer)
+#    - the answer is [Жүр бірге ойнайық](sentence_answer)
+#    - In Kazakh it is [Кеше біз үйге қайттық](sentence_answer)
+
+#- intent: answer_translation_quiz
+#  examples: |
+#    - the sentence would be [Мен бағдарламалауды жақсы көремін](translation_answer)
+#    - sentence would be [Ол кітап оқып жатыр](translation_answer)
+#    - answer for that translation would be [Кім хоккей ойнайды?](translation_answer)
+#    - the translation is [Аспанның түсі көк](translation_answer)
+#    - the correct translation is [Али дүкенге алдыңғы күні барды](translation_answer)
+#    - I think that the translation is [Біз жаңа тіл үйреніп жатырмыз](translation_answer)
+#    - it is translated as [Жүр сабақ оқиық](translation_answer)
+#    - [Алауда көп балалар шаңа теуіп жүр](translation_answer)
+#    - [Семейде Қарайғайлы орманы бар](translation_answer)
+
+#- intent: learn_words
+#  examples: |
+#    - yes, I learned them
+#    - I have learned these
+#    - I memorized these words
+#    - I know them now
+
+- intent: test_mongo
+  examples: |
+    - Check database
+    - Test MongoDB
+    - show me my database profile
+
+# NER
+#People name
+#Building names
+#Cities, villages, museums
+#Traditional games, sports
+#Items, ornaments
+#Historical data
+- intent: ask_about_people
+  examples: |
+    - [Абай Құнанбаев](People_name) кім?
+    - [Пушкин](People_name) кім?
+    - [Мамангер](People_name) кім?
+    - [Мұхтар Әуезов](People_name) туралы айтып берші.
+    - [Қобыланды](People_name) туралы айтып берші.
+    - Who is [Абай Құнанбаев](People_name)?
+    - Who is [Мұхтар Шаханов](People_name)?
+    - Tell me about [Мұхтар Әуезов](People_name).
+    - Tell me about [Исатай](People_name).
+    - [Абай](People_name) кім?
+    - [Абай Құнанбаев](People_name) кім болған?
+    - [Қабанбай батыр](People_name) кім болған?
+    - [Керей хан](People_name) кім болған?
+    - [Санжар](People_name) туралы айтып берші.
+    - [Шоқан Уәлиханов](People_name) қандай адам болған?
+    - [Шәкәрім Құдайбердіұлы](People_name) қандай адам болған?
+    - Маған [Ілияс Есенберлин](People_name) туралы айтып беріңізші.
+    - [Құрманғазы](People_name) туралы не білесің?
+    - [Алдар көсе](People_name) туралы не білесің?
+    - [Сәкен Сейфуллин](People_name) кім еді?
+    - [Жангелдин](People_name) кім еді?
+    - [Жамбыл Жабаев](People_name) қандай шығармалар жазды?
+    - [Дулат Исабекұлы](People_name) қандай шығармалар жазды?
+    - [Мұқағали Мақатаев](People_name) қандай ақын?
+    - [Есенин](People_name) қандай ақын?
+    - [Төле би](People_name) туралы қысқаша айтып берші.
+    - [Кенесары](People_name) туралы қысқаша айтып берші.
+    - [Абылай хан](People_name) қандай тұлға болған?
+    - [Әлия Молдағұлова](People_name) кім?
+    - [Бауыржан Момышұлы](People_name) қандай ерлік жасады?
+    - [Шәмші Қалдаяқов](People_name) қандай әндер жазған?
+    - [Алпамыс батыр](People_name) туралы аңыз бар ма?
+    - [Толағай](People_name) туралы аңыз бар ма?
+    - [Қаныш Сәтбаев](People_name) қандай ғалым?
+    - [Коперник](People_name) қандай ғалым?
+    - Who is [Татьяна](People_name)?
+    - Who was [Мұхтар Әуезов](People_name)?
+    - Who was [Шерхан Мұртаза](People_name)?
+    - Can you tell me about [Шоқан Уәлиханов](People_name)?
+    - Can you tell me about [Айгүл апай](People_name)?
+    - Tell me the biography of [Ілияс Есенберлин](People_name).
+    - Tell me the biography of [Есет батыр](People_name).
+    - What is [Құрманғазы](People_name) known for?
+    - What is [Дина](People_name) known for?
+    - What did [Сәкен Сейфуллин](People_name) do?
+    - What did [Илия Илин](People_name) do?
+    - Who was [Жамбыл Жабаев](People_name)?
+    - Who was [Алихан Бөкейханов](People_name)?
+    - What did [Абылай Хан](People_name) accomplish?
+    - Who is [Алия Молдағұлова](People_name)?
+    - What heroic deeds did [Бауыржан Момышұлы](People_name) do?
+    - Which songs did [Шәмші Қалдаяқов](People_name) compose?
+    - Is there a legend about [Алмапыс батыр](People_name)?
+    - What kind of scientist was [Қаныш Сатпаев](People_name)?
+    - Кто такой [Абай](People_name)?
+    - Расскажи мне о [Мұхтар Әуезов](People_name).
+    - Чем известен [Шоқан Уәлиханов](People_name)?
+    - Чем известен [Әзілхан Нұршайықов](People_name)?
+    - Что написал [Ілияс Есенберлин](People_name)?
+    - Что написал [Маяковский](People_name)?
+    - Какие произведения создал [Құрманғазы](People_name)?
+    - Кто такой [Сәкен Сейфуллин](People_name)?
+    - Какие стихи написал [Жамбыл Жабаев](People_name)?
+    - Что ты знаешь о [Мұқағали Мақатаев](People_name)?
+    - Какой вклад внес [Төле би](People_name)?
+    - Чем знаменит [Абылай хан](People_name)?
+    - Кто была [Әлия Молдағұлова](People_name)?
+    - Какие подвиги совершил [Бауыржан Момышұлы](People_name)?
+    - Какие песни написал [Шәмші Қалдаяқов](People_name)?
+    - Есть ли легенда о [Алпамыс батыр](People_name)?
+    - Каким ученым был [Қаныш Сатпаев](People_name)?
+
+- intent: ask_about_places
+  examples: |
+    - [Алматы](Location) қайда орналасқан?
+    - [Шардара](Location) қайда орналасқан?
+    - [Шымкент](Location) қандай қала?
+    - [Қостанай](Location) қандай қала?
+    - [Көкпекті](Location) қандай ауыл?
+    - [Қарағандыкөл](Location) қандай ауыл?
+    - [Қарағанды](Location) қандай ерекшеліктері бар?
+    - [Жетісай](Location) қандай ерекшеліктері бар?
+    - [Тараз](Location) қандай тарихы бар?
+    - [Уржар](Location) қандай тарихы бар?
+    - [Орал](Location) қандай қала?
+    - [Ақтөбе](Location) туралы не білесің?
+    - [Көкшетау](Location) табиғаты қандай?
+    - [Қатон Қарағай](Location) табиғаты қандай?
+    - [Атырау](Location) несімен танымал?
+    - [Екібастұз](Location) несімен танымал?
+    - [Семей](Location) қандай атақты орындары бар?
+    - [Петропавл](Location) қандай атақты орындары бар?
+    - [Өскемен](Location) қайда орналасқан?
+    - [Павлодар](Location) қандай өндіріс орындары бар?
+    - [Қызылорда](Location) туралы қызықты фактілер айтып берші.
+    - [Жезқазған](Location) несімен белгілі?
+    - [Ақтау](Location) теңіз жағасында ма?
+    - [Қостанай](Location) қандай қала?
+    - [Баянауыл](Location) табиғаты қандай?
+    - [Бурабай](Location) табиғаты қандай?
+    - [Түркістан](Location) қандай тарихи орындары бар?
+    - [Балқаш](Location) қандай ерекшеліктері бар?
+    - Where is [Алматы](Location) located?
+    - Where is [Ақтау](Location) located?
+    - Tell me about city [Нұр-Сұлтан](Location).
+    - Tell me about city [Алтын орда](Location).
+    - What kind of city is [Шымкент](Location)?
+    - What kind of city is [Аягөз](Location)?
+    - What is special about [Ақсуат](Location)?
+    - What is the history of [Тараз](Location)?
+    - What is the history of [Отырар](Location)?
+    - Is [Орал](Location) a big city?
+    - Is [Семей](Location) a big city?
+    - What do you know about [Ақтөбе](Location)?
+    - What do you know about [Атырау](Location)?
+    - What is the nature like in [Көкшетау](Location)?
+    - What famous places are in [Семей](Location)?
+    - What famous places are in [Риддер](Location)?
+    - Where is [Өскемен](Location)?
+    - Where is [Екібастұз](Location)?
+    - What industries are in [Палодар](Location)?
+    - Tell me some interesting facts about [Қызылорда](Location).
+    - What is [Жезқазған](Location) known for?
+    - Is [Ақтау](Location) near the sea?
+    - What kind of city is [Қостанай](Location)?
+    - How is the nature in [Баянауыл](Location)?
+    - How is the nature in [Бурабай](Location)?
+    - What historical places are in [Түркістан](Location)?
+    - What historical places are in [Шымкент](Location)?
+    - What makes [Балқаш](Location) unique?
+    - Где находится [Алматы](Location)?
+    - Расскажи мне о [Нұр-Сұлтан](Location).
+    - Какой город [Шымкент](Location)?
+    - Чем известен [Қарағанда](Location)?
+    - Какова история [Тараз](Location)?
+    - [Орал](Location) — это большой город?
+    - Что ты знаешь о [Ақтөбе](Location)?
+    - Какая природа в [Көкшетау](Location)?
+    - Почему [Атырау](Location) знаменит?
+    - Какие достопримечательности есть в [Семей](Location)?
+    - Где находится [Өскемен](Location)?
+    - Какие производства есть в [Павлодар](Location)?
+    - Расскажи интересные факты про [Қызылорда](Location).
+    - Чем известен [Жезқазған](Location)?
+    - [Ақтау](Location) находится у моря?
+    - Что за город [Қостанай](Location)?
+    - Какая природа в [Баянауыл](Location)?
+    - Почему [Бурабай](Location) так популярен?
+    - Какие исторические места есть в [Түркістан](Location)?
+    - Что особенного в [Балқаш](Location)?
+
+- intent: ask_about_sports_and_games
+  examples: |
+    - [Қазақша күрес](Sport) қандай спорт түрі?
+    - [Садақ ату](Sport) қандай спорт түрі?
+    - [Көкпар](Sport) қандай спорт түрі?
+    - [Тоғызқұмалақ](Game) ойыны қалай ойналады?
+    - [Тығылмаш](Game) ойыны қалай ойналады?
+    - [Асық ату](Game) ойыны туралы айтып берші.
+    - [Көкпар](Sport) ойыны несімен танымал?
+    - [Аударыспақ](Sport) ойыны несімен танымал?
+    - [Жамбы ату](Sport) ойыны қалай өтеді?
+    - [Бәйге](Sport) жарысының ережелері қандай?
+    - [Сайыс](Sport) қандай ойын?
+    - [Теңге ілу](Game) қалай ойналады?
+    - [Алтыбақан](Game) қандай ойын?
+    - [Қыз қуу](Sport) ойыны қалай өтеді?
+    - [Шекпен](Game) деген қандай дәстүрлі ойын?
+    - [Бес тас](Game) ойыны туралы айтып берші.
+    - What kind of sport is [Қазақша күрес](Sport)?
+    - What kind of sport is [Жүзу](Sport)?
+    - How is the game of [Тоғызқұмалақ](Game) played?
+    - How is the game of [Қуу](Game) played?
+    - Tell me about game [Асық ату](Game).
+    - How is [Жамбы ату](Sport) played?
+    - What are the rules of [Бәйге](Sport)?
+    - What are the rules of [Қол күрес](Sport)?
+    - What are the rules of [Арқан тартыс](Sport)?
+    - What is [Аударыспақ](Sport)?
+    - What type of game is [Сайыс](Sport)?
+    - How do you play [Теңге ілу](Game)?
+    - How do you play [Алтыбақан](Game)?
+    - What is [Алтыбақан](Game)?
+    - How is the game [Қыз қуу](Sport) played?
+    - What kind of traditional game is [Шекпен](Game)?
+    - Tell me about [Бес тас](Game).
+    - Что за спорт [Қазақша күрес](Sport)?
+    - Как играют в [Тоғызқұмалақ](Game)?
+    - Как играют в [Қуаласпақ](Game)?
+    - Расскажи мне про игру [Асық ату](Game).
+    - Расскажи мне про игру [Көксерек](Game).
+    - Почему [Көкпар](Sport) так популярен?
+    - Как проходит игра [Жамбы ату](Sport)?
+    - Какие правила у [Бәйге](Sport)?
+    - Что такое [Аударыспақ](Sport)?
+    - Какая игра называется [Сайыс](Sport)?
+    - Как играют в [Теңге ілу](Game)?
+    - Что за традиционная игра [Алтыбақан](Game)?
+    - Как проходит игра [Қыз қуу](Sport)?
+    - Какая традиционная игра называется [Шекпен](Game)?
+    - Расскажи мне про игру [Бес тас](Game).
+    
+
+
+- intent: ask_about_kazakh_items
+  examples: |
+    - What is a [киіз үй](Kazakh_Item)?
+    - What is a [ұршық](Kazakh_Item)?
+    - How was a [кереге](Kazakh_Item) used in Kazakh culture?
+    - How was a [көзілдірік](Kazakh_Item) used in Kazakh culture?
+    - Tell me about [шаңырақ](Kazakh_Item).
+    - Tell me about [дәптер](Kazakh_Item).
+    - Tell me about [көрпе](Kazakh_Item).
+    - What is the significance of [уық](Kazakh_Item) in a Kazakh yurt?
+    - How is a [түйекөз](Kazakh_Item) used?
+    - How is a [қалқан](Kazakh_Item) used?
+    - How is a [сауыт](Kazakh_Item) used?
+    - What is a [домбыра](Kazakh_Item)?
+    - What is a [жетіген](Kazakh_Item)?
+    - How was a [қобыз](Kazakh_Item) traditionally played?
+    - How was a [сырнай](Kazakh_Item) traditionally played?
+    - What materials were used to make a [сәукеле](Kazakh_Item)?
+    - What materials were used to make a [тақия](Kazakh_Item)?
+    - Why is a [қамшы](Kazakh_Item) important for Kazakh horse riders?
+    - What does a [бесік](Kazakh_Item) look like?
+    - What does a [ертоқым](Kazakh_Item) look like?
+    - How does a [киіз](Kazakh_Item) differ from modern carpets?
+    - What is a [шапан](Kazakh_Item) and who wears it?
+    - What is the purpose of a [текемет](Kazakh_Item)?
+    - What is the purpose of a [үзеңгі](Kazakh_Item)?
+    - How is a [асаба](Kazakh_Item) used in Kazakh ceremonies?
+    - Why did Kazakh nomads use a [найза](Kazakh_Item)?
+    - What kind of food is cooked in a [қазан](Kazakh_Item)?
+    - What is the function of a [адырна](Kazakh_Item)?
+    - How was a [саба](Kazakh_Item) used to store koumiss?
+    - What is a [кебенек](Kazakh_Item)?
+    - What is the historical use of a [мылтық](Kazakh_Item)?
+    - [Киіз үй](Kazakh_Item) дегеніміз не?
+    - [Ою өрнек](Kazakh_Item) дегеніміз не?
+    - [Шаңырақ](Kazakh_Item) не үшін керек?
+    - [Уық](Kazakh_Item) не үшін керек?
+    - [Сәукеле](Kazakh_Item) қандай материалдардан жасалған?
+    - [Бөрік](Kazakh_Item) қандай материалдардан жасалған?
+    - [Қамшы](Kazakh_Item) қандай мақсатта қолданылады?
+    - [Балға](Kazakh_Item) қандай мақсатта қолданылады?
+    - [Қанжар](Kazakh_Item) қандай мақсатта қолданылады?
+    - [Торғашық](Kazakh_Item) қандай бұйым?
+    - [Сырға](Kazakh_Item) қандай бұйым?
+    - [Қазан](Kazakh_Item) не пісіруге қолданылады?
+    - [Кебенек](Kazakh_Item) кімдер киеді?
+    - [Шалбар](Kazakh_Item) кімдер киеді?
+    - [Адырна](Kazakh_Item) қандай құрал?
+    - [Айбалта](Kazakh_Item) қандай құрал?
+    - Что такое [киіз үй](Kazakh_Item)?
+    - Как использовался [кереге](Kazakh_Item)?
+    - Как использовался [шалғы](Kazakh_Item)?
+    - Для чего нужен [қымыз](Kazakh_Item)?
+    - Что за инструмент [домбыра](Kazakh_Item)?
+    - Что за инструмент [жетіген](Kazakh_Item)?
+    - Что хранится в [саба](Kazakh_Item)?
+    - Что хранится в [сандық](Kazakh_Item)?
+    - Что за головной убор [сәукеле](Kazakh_Item)?
+    - Что за головной убор [бөрік](Kazakh_Item)?
+    - Как использовали [қамшы](Kazakh_Item)?
+    - Как использовали [семсер](Kazakh_Item)?
+    - Какой напиток готовят в [саба](Kazakh_Item)?
